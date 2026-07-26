@@ -1,0 +1,395 @@
+```plaintext
+## 1
+行号：431
+Oh mein Gott
+### 单词拆解
+Oh：感叹词，哦
+mein：物主代词，我的
+der Gott：阳性名词，单数der Gott，复数die Götter，上帝
+### 句意
+我的天呐！（口语强烈感叹）
+
+## 2
+行号：439
+verloren
+### 动词
+原形：verlieren 丢失、遗失、输掉、失去
+verloren 为第二分词，也可作过去式
+现在时完整变位：ich verliere, du verlierst, er/sie/es verliert, wir verlieren, ihr verliert, sie/Sie verlieren
+
+## 3
+行号：441
+passiert
+### 动词
+原形：passieren 发生；经过
+passiert 是er/sie/es第三人称单数现在时变位，同时也是第二分词
+含义：发生了、出事了
+现在时变位：ich passiere, du passierst, er/sie/es passiert, wir passieren, ihr passiert, sie/Sie passieren
+
+## 4
+行号：447
+Aufnäher
+### 名词
+der Aufnäher，复数 die Aufnäher
+中文：布贴、刺绣徽章、缝饰补丁
+词性：阳性 der
+
+## 5
+行号：457
+Danke euch!
+### 单词拆解
+Danke：动词danken第一人称单数，感谢
+euch：代词，你们（第三格复数）
+### 句意
+谢谢你们！
+
+## 6
+行号：459
+Was soll das denn?
+### 单词拆解
+Was：疑问代词，什么
+soll：情态动词sollen三单变位，应该、算作
+das：代词，这个
+denn：语气小品词，究竟、到底
+### 句意
+这到底是什么意思？这算怎么回事？
+
+## 7
+行号：466
+Auf dem Amt
+### 单词拆解
+Auf：介词，在……之上/在……机构
+dem Amt：das Amt 第三格单数
+### 名词
+das Amt，复数 die Ämter，中性，含义：政务大厅、办事处、机关单位
+### 短语释义
+在政务办事大厅
+
+## 8
+行号：515
+Aber ich werd’s rausfinden
+### 单词拆解
+Aber：连词，但是
+ich werd’s = ich werde es：我将会（缩写口语形式）
+herausfinden（简写rausfinden）：查明、找出、弄明白
+### 动词原形
+herausfinden 找出真相、查清
+### 句意
+但我一定会把这件事查清楚。
+
+## 9
+行号：521
+Party
+### 名词
+die Party，复数 die Partys
+中文：派对、聚会
+词性：阴性 die
+
+## 10
+行号：552
+Fahrradladen
+### 复合名词
+构成：das Fahrrad（自行车） + der Laden（店铺）
+der Fahrradladen，复数 die Fahrradläden
+中文：自行车专卖店、自行车车行
+词性：阳性 der
+
+## 11
+行号：569
+Willkommen in der Wagnergasse
+### 单词拆解
+Willkommen：感叹词，欢迎
+in der Wagnergasse：在瓦格纳巷（地名）
+die Gasse：阴性名词，复数die Gassen，小巷
+### 句意
+欢迎来到瓦格纳小巷。
+
+## 12
+行号：573
+Herzlich willkommen!
+### 单词拆解
+Herzlich：副词，热烈地、衷心地
+willkommen：欢迎
+### 句意
+热烈欢迎！
+
+## 13
+行号：577
+wir haben ein kleines Problem.
+### 单词拆解
+wir：我们
+haben：动词，有
+ein kleines：一个小的
+das Problem：中性名词，复数die Probleme，问题
+### 句意
+我们遇到了一个小问题。
+
+## 14
+行号：583
+Hat am Flughafen alles geklappt?
+### 单词拆解
+Hat：haben完成时助动词
+am Flughafen：在机场
+alles：所有事情
+geklappt：klappen第二分词，顺利办成
+### 动词
+原形klappen 进展顺利、办妥
+### 句意
+机场那边一切都顺利搞定了吗？
+
+## 15
+行号：585
+Flugzeug
+### 名词
+das Flugzeug，复数 die Flugzeuge
+中文：飞机
+词性：中性 das
+
+## 16
+行号：585
+sitzt
+### 动词
+原形：sitzen 坐、位于、坐落
+sitzt 为er/sie/es三单现在时变位
+完整变位：ich sitze, du sitzt, er/sie/es sitzt, wir sitzen, ihr sitzt, sie/Sie sitzen
+
+## 17
+行号：608
+hübsch.
+### 具体释义
+形容词/副词：漂亮的、清秀的、可爱的（可形容人长相、物件好看）
+
+## 18
+行号：626
+Angebot
+### 名词
+das Angebot，复数 die Angebote
+中文：报价、优惠活动、提议、餐厅当日特供菜
+词性：中性 das
+
+## 19
+行号：646
+vielleicht.
+### 具体释义
+副词：也许、或许、可能
+
+## 20
+行号：682
+Speisekarte
+### 名词
+die Speisekarte，复数 die Speisekarten
+中文：餐厅菜单、菜谱
+词性：阴性 die
+
+## 21
+行号：682
+von
+### 具体释义
+介词：……的（表所属）；从……（表来源）；由……
+
+## 22
+行号：690
+Radio?
+### 名词
+das Radio，复数 die Radios
+中文：收音机、广播电台
+词性：中性 das
+### 问句含义
+收音机吗？要收音机？
+
+## 23
+行号：702
+Mozzarella
+### 名词
+der Mozzarella，无复数
+中文：马苏里拉奶酪
+词性：阳性 der
+
+## 24
+行号：706
+Schinken
+### 名词
+der Schinken，复数 die Schinken
+中文：火腿
+词性：阳性 der
+
+## 25
+行号：715
+Nachricht
+### 名词
+die Nachricht，复数 die Nachrichten
+中文：消息、短信、新闻、通知
+词性：阴性 die
+
+## 26
+行号：730
+getrennt?
+### 动词
+原形：trennen 分开、分离、隔断
+getrennt 为第二分词
+问句含义：分开了吗？（口语常指情侣分手了吗？）
+
+## 27
+行号：736
+Das stimmt so
+### 单词拆解
+Das：这个
+stimmt：stimmen三单变位，正确、没问题
+so：就这样
+### 固定口语句意
+这样就可以了；不用找零；就这样没问题。
+
+## 28
+行号：762
+werde
+### 动词
+原形：werden 将要、变成、成为
+werde 是ich第一人称单数现在时变位
+完整变位：ich werde, du wirst, er/sie/es wird, wir werden, ihr werdet, sie/Sie werden
+
+## 29
+行号：770
+Abschiedsparty.
+### 复合名词
+构成：der Abschied（告别） + die Party（派对）
+die Abschiedsparty，复数 die Abschiedspartys
+中文：告别派对、欢送会
+词性：阴性 die
+
+## 30
+行号：774
+Guten Appetit
+### 单词拆解
+Guten：好的（第四格）
+der Appetit：阳性名词，胃口、食欲
+### 固定用餐祝福语
+用餐愉快！祝你胃口大开！
+
+## 31
+行号：795
+Sehenswürdigkeit
+### 名词
+die Sehenswürdigkeit，复数 die Sehenswürdigkeiten
+中文：旅游景点、名胜古迹
+词性：阴性 die
+
+## 32
+行号：821
+Kommentar
+### 名词
+der Kommentar，复数 die Kommentare
+中文：评论、点评、注释、留言
+词性：阳性 der
+
+## 33
+行号：826
+liegt
+### 动词
+原形：liegen 躺；位于、坐落于
+liegt 为er/sie/es三单现在时变位
+变位：ich liege, du liegst, er/sie/es liegt...
+
+## 34
+行号：832
+Norden
+### 名词
+der Norden，复数 die Norden
+中文：北方、北部
+词性：阳性 der
+
+## 35
+行号：832
+Osten
+### 名词
+der Osten，复数 die Osten
+中文：东方、东部
+词性：阳性 der
+
+## 36
+行号：832
+Süden
+### 名词
+der Süden，复数 die Süden
+中文：南方、南部
+词性：阳性 der
+
+## 37
+行号：832
+Westen
+### 名词
+der Westen，复数 die Westen
+中文：西方、西部
+词性：阳性 der
+
+## 38
+行号：850
+gewinnen
+### 动词
+原形：gewinnen 赢得、获胜、赚到
+现在时完整变位：ich gewinne, du gewinnst, er/sie/es gewinnt, wir gewinnen, ihr gewinnt, sie/Sie gewinnen
+
+## 39
+行号：879
+Fähnchen
+### 名词
+das Fähnchen，复数 die Fähnchen
+中文：小旗子、小旗帜（Fahne的指小词）
+词性：中性 das
+
+## 40
+行号：879
+Ihr müsst die Fähnchen zuordnen.
+### 单词拆解
+Ihr：你们
+müsst：müssen第二人称复数变位，必须
+die Fähnchen：小旗子
+zuordnen：动词，匹配、归类、对应
+### 句意
+你们必须把这些小旗子一一对应归类。
+
+## 41
+行号：879
+Ländern.
+### 名词
+原型 das Land，复数 die Länder，此处为第三格Ländern
+中文：各个国家、地区
+词性：中性 das
+
+## 42
+行号：879
+Spezialitäten
+### 名词
+原型 die Spezialität，复数 die Spezialitäten
+中文：特产、特色美食、特色产品
+词性：阴性 die
+
+## 43
+行号：879
+Spezialitäten aus verschiedenen Ländern.
+### 单词拆解
+Spezialitäten：特产
+aus：来自
+verschiedenen：不同的（形容词变格）
+Ländern：国家（三格复数）
+### 句意
+来自不同国家的特色特产/特色美食。
+
+## 44
+行号：879
+verschiedenen
+### 具体释义
+形容词verschieden的变格形式，含义：不同的、各种各样的
+
+## 45
+行号：879
+zuordnen.
+### 动词
+原形：zuordnen 分配、配对、归类、一一对应
+现在时变位：ich ordne zu, du ordnest zu, er/sie/es ordnet zu, wir ordnen zu, ihr ordnet zu, sie/Sie ordnen zu
+
+## 46
+行号：881
+einfach
+### 具体释义
+形容词/副词：简单的；干脆、简直、仅仅、直接地
+```

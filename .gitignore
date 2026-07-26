@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+
+# 临时文件 (调试用, 脚本生成)
+_*.py
+_*.ps1
+_*.txt
+_*.png
+_*.err
+_*.out
+
+# 系统 (匹配文件或目录)
+.aicoding-chat-workspace
+
+# 持久化的本地数据 (含个人提取, 不上传)
+extracted_words.json

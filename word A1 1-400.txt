@@ -1,0 +1,390 @@
+
+## 1
+行号：41
+ich bin gut angekommen
+### 单词拆解
+1. ich：第一人称单数代词，我
+2. bin：sein（是/在）第一人称单数现在时变位
+3. gut：副词，好好地、顺利地
+4. angekommen：ankommen 的第二分词，到达
+### 整体句意
+我已经顺利抵达了。
+### 补充动词ankommen（到达）
+原形：ankommen
+现在时人称变位：
+ich komme, du kommst, er/sie/es kommt, wir kommen, ihr kommt, sie/Sie kommen
+
+## 2
+行号：41
+angekommen.
+### 释义
+ankommen 的第二分词，含义：到达、抵达；
+单独使用常表“已到”，完成时态构成部分。
+
+## 3
+行号：41
+die Unterlagen
+### 名词规范写法
+die Unterlage，复数 die Unterlagen
+中文：文件、资料、证明材料、单据
+词性：阴性名词 die
+单数：die Unterlage，复数：die Unterlagen
+
+## 4
+行号：41
+hinterlegen.
+### 动词
+原形：hinterlegen
+中文：寄存、存放、备案、抵押
+现在时变位：
+ich hinterlege, du hinterlegst, er/sie/es hinterlegt, wir hinterlegen, ihr hinterlegt, sie/Sie hinterlegen
+
+## 5
+行号：45
+Zentrum
+### 名词
+das Zentrum，复数 die Zentren
+中文：中心、市中心、核心区域
+词性：中性 das
+
+## 6
+行号：72
+Hilfe?
+### 名词
+die Hilfe，复数 die Hilfen
+中文：帮助、救助、援手；问句意为：需要帮忙吗？救命？
+词性：阴性 die
+
+## 7
+行号：99
+Nicht schlecht!
+### 单词拆解
+nicht：副词，不、没有
+schlecht：形容词，差的、糟糕的
+### 整句翻译
+不错嘛！还可以！
+
+## 8
+行号：113
+arbeitet
+### 动词
+原形：arbeiten 工作、干活、运转
+arbeitet 是第三人称单数现在时变位（er/sie/es arbeitet）
+完整现在时变位：
+ich arbeite, du arbeitest, er/sie/es arbeitet, wir arbeiten, ihr arbeitet, sie/Sie arbeiten
+
+## 9
+行号：80
+weg
+### 词性：副词/形容词
+含义：离开、走掉、不见了、远去
+例：Ich bin weg. 我走了。
+
+## 10
+行号：157
+kurz
+### 词性：形容词/副词
+含义：短的；短暂地、一会儿
+## 11
+行号：157
+tanken.
+### 动词
+原形：tanken
+中文：（汽车）加油；给车加注燃油
+现在时变位：
+ich tanke, du tankst, er/sie/es tankt, wir tanken, ihr tankt, sie/Sie tanken
+
+## 12
+行号：172
+spinnst
+### 动词
+原形：spinnen
+本义：纺纱；口语高频义：发疯、脑子不正常
+spinnst 为第二人称单数 du spinnst
+完整变位：ich spinne, du spinnst, er spinnt…
+口语常用：Du spinnst! 你疯了吧！
+
+## 13
+行号：186
+sucht
+### 动词
+原形：suchen 寻找、找寻
+sucht = er/sie/es sucht 三单现在时
+变位：ich suche, du suchst, er sucht, wir suchen…
+
+## 14
+行号：196
+Keine Ahnung
+### 固定口语短语
+单词拆解：keine 没有；die Ahnung 想法、概念
+翻译：不知道、毫无头绪、不清楚
+完整常用句：Ich habe keine Ahnung. 我完全不知道。
+名词补充：die Ahnung 阴，复数 die Ahnungen
+
+## 15
+行号：249
+Flughafen.
+### 名词
+der Flughafen，复数 die Flughäfen
+中文：机场
+词性：阳性 der
+
+## 16
+行号：265
+Kann dein Vater nicht helfen?
+### 单词拆解
+kann：können（能够）三单变位
+dein：你的（阳性一格）
+der Vater：父亲（der Vater, 复数 die Väter）
+nicht：不
+helfen：动词 帮忙
+### 整句翻译
+你父亲就不能搭把手帮帮忙吗？
+### 动词补充
+können 情态动词：ich kann, du kannst, er kann…
+helfen 实义动词：ich helfe, du hilfst, er hilft…
+
+## 17
+行号：265
+Er ist doch bei der Polizei
+### 单词拆解
+er：他
+ist：sein 三单
+doch：语气小品词，表“毕竟、不是嘛”
+bei：介词，在…那里
+der Polizei：Polizei 第三格
+### 句意
+他毕竟在警察局上班/在警方任职啊。
+
+## 18
+行号：265
+Polizei
+### 名词
+die Polizei （无常用复数）
+中文：警察局、警方、警察部门
+阴性 die
+
+## 19
+行号：267
+Idee!
+### 名词
+die Idee，复数 die Ideen
+中文：主意、点子、想法
+阴性 die，感叹句：好主意！
+
+## 20
+行号：271
+Polizist.
+### 名词
+der Polizist，复数 die Polizisten
+中文：男警察、警员
+阳性 der；女警察 die Polizistin
+
+## 21
+行号：280
+Was ist los
+### 固定短句
+单词：was 什么；ist 是；los 发生了的、出问题的
+翻译：出什么事了？怎么了？发生啥了？
+
+## 22
+行号：282
+Sorge!
+### 名词
+die Sorge，复数 die Sorgen
+中文：担心、忧虑、烦恼；感叹：别担心！
+阴性 die
+
+## 23
+行号：284
+Ausweis
+### 名词
+der Ausweis，复数 die Ausweise
+中文：证件、身份证、凭证
+阳性 der
+
+## 24
+行号：291
+Geschäft,
+### 名词
+das Geschäft，复数 die Geschäfte
+含义：生意、买卖；商店；业务
+中性 das
+
+## 25
+行号：291
+Fahrradgeschäft
+### 复合名词
+拆分：Fahrrad自行车 + Geschäft店铺
+das Fahrradgeschäft，复数 die Fahrradgeschäfte
+中文：自行车行、自行车专卖店
+中性 das
+
+## 26
+行号：313
+Viel Erfolg!
+### 固定祝福语
+viel 很多；der Erfolg 成功
+翻译：祝你一切顺利！祝你大展宏图！加油！
+名词：der Erfolg 阳，复数 die Erfolge
+
+## 27
+行号：347
+Eine Einladung zum Geburtstag von Charlotte.
+### 逐词拆解
+eine：一个（阴性一格）
+die Einladung 邀请（die Einladung, Pl. Einladungen）
+zum = zu dem 对于、为了
+der Geburtstag 生日（der Geburtstag, Pl. Geburtstage）
+von Charlotte：夏洛特的
+### 整句翻译
+一封夏洛特生日派对的邀请函。
+
+## 28
+行号：355
+Geschenk
+### 名词
+das Geschenk，复数 die Geschenke
+中文：礼物、礼品
+中性 das
+
+## 29
+行号：376
+Hab viel Spaß
+### 原型与变位
+hab = haben 第二人称单数命令式 du hast → Hab!
+viel Spaß：很多乐趣
+### 翻译
+玩得开心点！尽情享受！
+名词：der Spaß 阳，复数 die Späße
+
+## 30
+行号：376
+Herzlichen Glückwunsch
+### 固定贺词
+herzlich 衷心的；der Glückwunsch 祝贺
+翻译：衷心祝贺！生日快乐！恭喜！
+名词：der Glückwunsch，复数 die Glückwünsche
+
+## 31
+行号：380
+Schlafsack
+### 名词
+der Schlafsack，复数 die Schlafsäcke
+中文：睡袋
+阳性 der
+
+## 32
+行号：380
+Isomatte.
+### 名词
+die Isomatte，复数 die Isomatten
+中文：户外防潮垫、隔热野餐垫
+阴性 die
+
+## 33
+行号：384
+Traumfrau
+### 复合名词
+der Traum梦想 + die Frau女人
+die Traumfrau，复数 die Traumfrauen
+中文：理想女友、梦中女神、心仪对象
+阴性 die
+
+## 34
+行号：384
+kennengelernt?
+### 动词
+原形：kennenlernen 结识、认识、相识
+kennengelernt 为第二分词，用于完成时
+变位（现在时）：ich lerne kennen, du lernst kennen…
+问句隐含：你们是怎么认识的？
+
+## 35
+行号：388
+abgegeben
+### 动词
+原形：abgeben 交出、提交、交付、退还
+abgegeben 第二分词，完成时使用
+
+## 36
+行号：390
+verloren
+### 动词
+原形：verlieren 丢失、输掉、失去
+verloren 第二分词/过去式，含义：弄丢了、输掉了
+
+## 37
+行号：390
+Amor
+### 外来名词
+der Amor
+中文：阿莫尔，罗马神话爱神（对应希腊丘比特），引申为爱情、缘分
+阳性 der
+
+## 38
+行号：396
+Leben
+### 名词+动词两用
+1. 名词：das Leben，复数 die Leben 生命、生活（中性）
+2. 动词原形：leben 生活、活着
+
+## 39
+行号：396
+verändert
+### 动词
+原形：verändern 改变、变更
+verändert 三单现在时 er verändert / 第二分词
+
+## 40
+行号：396
+ich würde mich gerne bedanken
+### 单词拆解
+ich würde：würden 虚拟式，我想要、我想
+mich：反身代词
+gerne：乐意地
+bedanken：sich bedanken 感谢
+### 整句翻译
+我想借此表达我的谢意 / 我由衷地想要致谢。
+动词：sich bedanken 反身动词，感谢
+
+## 41
+行号：390
+Nein, auf gar keinen Fall.
+### 固定短句
+nein 不；auf gar keinen Fall 绝不、无论如何都不
+翻译：不，绝对不行。想都别想。
+
+## 42
+行号：398
+greif
+### 动词
+原形：greifen 抓取、伸手拿、抓住
+greif 为第二人称单数命令式（Greif! 抓住！拿过来！）
+现在时：ich greife, du greifst, er greift…
+
+## 43
+行号：402
+Werbung
+### 名词
+die Werbung，复数 die Werbungen
+中文：广告、宣传、推广
+阴性 die
+
+## 44
+行号：402
+wissen,
+### 动词
+原形：wissen 知道、了解
+现在时变位：ich weiß, du weißt, er weiß, wir wissen…
+
+## 45
+行号：402
+wen ihr sucht!
+### 单词拆解
+wen：wer 宾格，谁
+ihr：你们（第二人称复数）
+sucht：suchen 变位
+### 从句翻译
+你们正在找的那个人！
+整句隐含：（我知道）你们在找谁！
