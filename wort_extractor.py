@@ -20,12 +20,48 @@ DEFAULT_SOURCE_NAME = "nico weg A1.txt"
 DEFAULT_LEARNING_NAME = "word A1 1-400.txt"
 
 
+# ====== 配色 + 字体 (友好现代风,集中管理方便日后调整) ======
+PALETTE = {
+    "primary":       "#5b8def",  # 主色 — 柔蓝 (按钮 / 高亮)
+    "primary_dark":  "#3d6fd0",  # 主色深 — 标题 / 头部
+    "primary_hover": "#3d6fd0",  # 主色悬停态
+    "primary_text":  "#ffffff",  # 主色按钮上的文字
+    "accent":        "#ff9f43",  # 强调色 — 暖橙
+    "accent_hover":  "#e8893d",
+    "success":       "#26ae60",  # 成功色 — 薄荷绿 (保存按钮)
+    "success_hover": "#1f9654",
+    "danger":        "#e74c3c",
+    "warning":       "#f39c12",
+    "bg":            "#eef1f6",  # 整体背景 — 极淡蓝灰
+    "surface":       "#ffffff",  # 卡片背景 — 白
+    "surface_alt":   "#f4f7fb",  # 备用卡片背景
+    "border":        "#d0d7e2",  # 软边框
+    "text":          "#2c3e50",  # 主文字 — 深海军蓝
+    "text_muted":    "#7f8c9b",  # 次要文字
+    "highlight":     "#fff8c5",  # 软黄高亮
+    "current":       "#ffd54f",  # 当前行高亮
+    "context_bg":    "#fbfcfd",  # 上下文行背景
+}
+
+FONT_DEFAULT  = ("Segoe UI", 10)
+FONT_SMALL    = ("Segoe UI", 9)
+FONT_BOLD     = ("Segoe UI", 10, "bold")
+FONT_HEADING  = ("Segoe UI", 11, "bold")
+FONT_TITLE    = ("Segoe UI", 14, "bold")
+FONT_MONO     = ("Consolas", 11)
+FONT_MONO_BIG = ("Consolas", 13, "bold")
+
+
 class WordExtractor:
     def __init__(self, root: tk.Tk):
         self.root = root
         self.root.title(APP_TITLE)
         self.root.geometry("1080x820")
         self.root.minsize(820, 640)
+        self.root.configure(bg=PALETTE["bg"])
+
+        # 初始化全局样式 (必须在构建任何控件之前调用)
+        self._init_styles()
 
         # 路径与数据
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -122,151 +158,422 @@ class WordExtractor:
             if self.learning_items:
                 self._reload_learning_file()
 
+    # -------------------------------------------------------------- 样式定义
+    def _init_styles(self):
+        """集中配置 ttk 控件样式 + 全局默认字体,使界面协调统一。"""
+        style = ttk.Style(self.root)
+        try:
+            style.theme_use("clam")  # clam 主题允许更多自定义
+        except tk.TclError:
+            pass
+
+        # 全局默认字体
+        style.configure(".", font=FONT_DEFAULT, background=PALETTE["bg"])
+        style.configure("TFrame", background=PALETTE["bg"])
+        style.configure("Surface.TFrame", background=PALETTE["surface"])
+
+        # LabelFrame (卡片) — 圆角感外观
+        style.configure(
+            "Card.TLabelframe",
+            background=PALETTE["surface"],
+            bordercolor=PALETTE["border"],
+            borderwidth=1,
+            relief="solid",
+        )
+        style.configure(
+            "Card.TLabelframe.Label",
+            background=PALETTE["surface"],
+            foreground=PALETTE["primary_dark"],
+            font=FONT_HEADING,
+            padding=(10, 4),
+        )
+
+        # Label — 普通/次要/标题
+        style.configure("TLabel", background=PALETTE["bg"], foreground=PALETTE["text"])
+        style.configure(
+            "Surface.TLabel",
+            background=PALETTE["surface"],
+            foreground=PALETTE["text"],
+        )
+        style.configure("Muted.TLabel", background=PALETTE["surface"],
+                         foreground=PALETTE["text_muted"], font=FONT_SMALL)
+        style.configure("Title.TLabel",
+                         background=PALETTE["surface"],
+                         foreground=PALETTE["primary_dark"],
+                         font=FONT_TITLE)
+        style.configure("Primary.TLabel",
+                         background=PALETTE["bg"],
+                         foreground=PALETTE["primary_dark"],
+                         font=FONT_HEADING)
+
+        # 强调信息条 (顶部条/单词本信息条)
+        style.configure("Info.TLabel",
+                         background=PALETTE["surface"],
+                         foreground=PALETTE["text"],
+                         font=FONT_BOLD)
+
+        # Button — 默认 / 主要动作
+        style.configure(
+            "TButton",
+            font=FONT_DEFAULT,
+            padding=(10, 5),
+            background=PALETTE["surface_alt"],
+            foreground=PALETTE["text"],
+            bordercolor=PALETTE["border"],
+            borderwidth=1,
+            relief="raised",
+        )
+        style.map(
+            "TButton",
+            background=[("active", PALETTE["surface_alt"]), ("pressed", PALETTE["border"])],
+            foreground=[("disabled", PALETTE["text_muted"])],
+            relief=[("pressed", "sunken")],
+        )
+
+        # 主操作按钮 — 蓝 (用于「提取所选词」)
+        style.configure(
+            "Primary.TButton",
+            font=FONT_BOLD,
+            padding=(12, 5),
+            background=PALETTE["primary"],
+            foreground=PALETTE["primary_text"],
+            bordercolor=PALETTE["primary_dark"],
+            borderwidth=0,
+        )
+        style.map(
+            "Primary.TButton",
+            background=[("active", PALETTE["primary_hover"]), ("pressed", PALETTE["primary_dark"])],
+            foreground=[("disabled", PALETTE["text_muted"])],
+        )
+
+        # 保存按钮 — 绿
+        style.configure(
+            "Success.TButton",
+            font=FONT_BOLD,
+            padding=(14, 6),
+            background=PALETTE["success"],
+            foreground=PALETTE["primary_text"],
+            bordercolor=PALETTE["success_hover"],
+            borderwidth=0,
+        )
+        style.map(
+            "Success.TButton",
+            background=[("active", PALETTE["success_hover"]), ("pressed", "#178047")],
+            foreground=[("disabled", PALETTE["text_muted"])],
+        )
+
+        # 学习模式专用 — 橙
+        style.configure(
+            "Accent.TButton",
+            font=FONT_BOLD,
+            padding=(12, 5),
+            background=PALETTE["accent"],
+            foreground=PALETTE["primary_text"],
+            bordercolor=PALETTE["accent_hover"],
+            borderwidth=0,
+        )
+        style.map(
+            "Accent.TButton",
+            background=[("active", PALETTE["accent_hover"]), ("pressed", "#c97a31")],
+        )
+
+        # Entry
+        style.configure(
+            "TEntry",
+            fieldbackground=PALETTE["surface"],
+            foreground=PALETTE["text"],
+            bordercolor=PALETTE["border"],
+            lightcolor=PALETTE["border"],
+            darkcolor=PALETTE["border"],
+            padding=4,
+        )
+
+        # Radiobutton
+        style.configure(
+            "TRadiobutton",
+            background=PALETTE["surface"],
+            foreground=PALETTE["text"],
+            padding=(4, 2),
+        )
+
+        # Checkbutton
+        style.configure(
+            "TCheckbutton",
+            background=PALETTE["surface"],
+            foreground=PALETTE["text"],
+            padding=(4, 2),
+        )
+
+        # Notebook (顶部分页)
+        style.configure(
+            "TNotebook",
+            background=PALETTE["bg"],
+            bordercolor=PALETTE["border"],
+            borderwidth=0,
+        )
+        style.configure(
+            "TNotebook.Tab",
+            background=PALETTE["surface_alt"],
+            foreground=PALETTE["text_muted"],
+            padding=(18, 8),
+            font=FONT_BOLD,
+            bordercolor=PALETTE["border"],
+        )
+        style.map(
+            "TNotebook.Tab",
+            background=[("selected", PALETTE["primary"]), ("active", PALETTE["surface_alt"])],
+            foreground=[("selected", PALETTE["primary_text"])],
+            font=[("selected", FONT_BOLD)],
+        )
+
+        # Separator
+        style.configure("TSeparator", background=PALETTE["border"])
+
+        # PanedWindow Sash (学习模式分隔条)
+        style.configure("Sash", background=PALETTE["border"], sashthickness=6)
+
+        # Scrollbar
+        style.configure(
+            "Vertical.TScrollbar",
+            background=PALETTE["surface_alt"],
+            bordercolor=PALETTE["border"],
+            arrowcolor=PALETTE["text_muted"],
+            troughcolor=PALETTE["bg"],
+        )
+        style.configure(
+            "Horizontal.TScrollbar",
+            background=PALETTE["surface_alt"],
+            bordercolor=PALETTE["border"],
+            arrowcolor=PALETTE["text_muted"],
+            troughcolor=PALETTE["bg"],
+        )
+
+        # Status bar
+        style.configure("Status.TLabel",
+                         background=PALETTE["primary_dark"],
+                         foreground=PALETTE["primary_text"],
+                         font=FONT_SMALL,
+                         padding=(8, 4))
+
     # -------------------------------------------------------------- UI 构建
     def _create_ui(self):
-        # 顶部信息条
-        top = ttk.Frame(self.root, padding=8)
-        top.pack(fill=tk.X)
-        ttk.Label(top, text="当前文件:").pack(side=tk.LEFT)
-        self.file_label = ttk.Label(top, text="(未加载)", foreground="#0066cc")
-        self.file_label.pack(side=tk.LEFT, padx=4)
-        ttk.Button(top, text="选择其他文件…", command=self._choose_file).pack(side=tk.LEFT, padx=12)
-        ttk.Button(top, text="🔍 查找词", command=self._find_word).pack(side=tk.LEFT, padx=12)
+        # ===== 顶部信息条 (header card) =====
+        header = tk.Frame(
+            self.root, bg=PALETTE["primary_dark"], height=56,
+        )
+        header.pack(fill=tk.X, side=tk.TOP)
+        header.pack_propagate(False)
+        # 左侧 logo + 标题
+        tk.Label(
+            header, text="🇩🇪  Nicos Weg A1 · 生词本",
+            bg=PALETTE["primary_dark"], fg=PALETTE["primary_text"],
+            font=FONT_TITLE,
+        ).pack(side=tk.LEFT, padx=(16, 18))
+        # 分隔
+        tk.Frame(header, bg=PALETTE["primary"], width=2).pack(side=tk.LEFT, fill=tk.Y, pady=12)
+        # 当前文件标签
+        tk.Label(
+            header, text="📄",
+            bg=PALETTE["primary_dark"], fg=PALETTE["primary_text"],
+            font=FONT_BOLD,
+        ).pack(side=tk.LEFT, padx=(14, 4))
+        self.file_label = tk.Label(
+            header, text="(未加载)",
+            bg=PALETTE["primary_dark"], fg="#cfe0ff",
+            font=FONT_DEFAULT, anchor=tk.W,
+        )
+        self.file_label.pack(side=tk.LEFT, padx=(0, 12), fill=tk.X, expand=True)
+        # 顶部右侧按钮 — 用 tk.Button 自定义色 (因为 clam 主题对 accent 背景支持有限)
+        def _header_btn(parent, text, cmd, bg, hover):
+            b = tk.Button(
+                parent, text=text, command=cmd,
+                font=FONT_BOLD, fg="white", bg=bg,
+                activebackground=hover, activeforeground="white",
+                relief=tk.FLAT, bd=0, padx=14, pady=6, cursor="hand2",
+            )
+            b.bind("<Enter>", lambda e, btn=b: btn.config(bg=hover))
+            b.bind("<Leave>", lambda e, btn=b: btn.config(bg=bg))
+            return b
+        btn_choose = _header_btn(header, "📁 选择其他文件…", self._choose_file,
+                                  PALETTE["primary"], PALETTE["primary_hover"])
+        btn_choose.pack(side=tk.RIGHT, padx=4, pady=10)
+        btn_find = _header_btn(header, "🔍 查找词", self._find_word,
+                                PALETTE["primary"], PALETTE["primary_hover"])
+        btn_find.pack(side=tk.RIGHT, padx=4, pady=10)
 
-        # Notebook:切换浏览/学习两种模式
+        # ===== Notebook:切换浏览/学习两种模式 =====
         self.notebook = ttk.Notebook(self.root)
-        self.notebook.pack(fill=tk.BOTH, expand=True, padx=8, pady=4)
-        browse_page = ttk.Frame(self.notebook)
-        self.notebook.add(browse_page, text="📖 浏览 / 提取")
-        study_page = ttk.Frame(self.notebook)
-        self.notebook.add(study_page, text="📚 学习模式")
+        self.notebook.pack(fill=tk.BOTH, expand=True, padx=12, pady=(12, 6))
+        browse_page = ttk.Frame(self.notebook, style="TFrame")
+        self.notebook.add(browse_page, text="   📖  浏览 / 提取   ")
+        study_page = ttk.Frame(self.notebook, style="TFrame")
+        self.notebook.add(study_page, text="   📚  学习模式   ")
         self._build_study_page(study_page)
 
-        # 当前行展示区
-        cur = ttk.LabelFrame(browse_page, text="当前行（用鼠标拖选要提取的单词或词组）", padding=8)
-        cur.pack(fill=tk.X, padx=8, pady=4)
+        # ===== 当前行展示区 (卡片) =====
+        cur = ttk.LabelFrame(
+            browse_page,
+            text="  📖  当前行  ·  用鼠标拖选要提取的单词或词组  ",
+            padding=10, style="Card.TLabelframe",
+        )
+        cur.pack(fill=tk.X, padx=4, pady=(6, 6))
 
-        self.line_label = ttk.Label(cur, text="", foreground="#555")
-        self.line_label.pack(anchor=tk.W)
+        self.line_label = ttk.Label(cur, text="", style="Surface.TLabel",
+                                     foreground=PALETTE["text_muted"], font=FONT_SMALL)
+        self.line_label.pack(anchor=tk.W, padx=2, pady=(0, 4))
 
-        text_holder = tk.Frame(cur, bg="#fafafa", highlightthickness=1, highlightbackground="#ccc")
-        text_holder.pack(fill=tk.X, pady=4)
+        text_holder = tk.Frame(
+            cur, bg=PALETTE["surface"],
+            highlightthickness=1, highlightbackground=PALETTE["border"],
+        )
+        text_holder.pack(fill=tk.X, pady=2)
         self.text_widget = tk.Text(
-            text_holder, height=12, font=("Consolas", 13),
-            wrap=tk.NONE, padx=8, pady=8, bd=0, bg="#fafafa",
-            # 深蓝底 + 白字,保证选区在任何行都清晰
-            selectbackground="#1e4ea0",
-            selectforeground="white",
-            inactiveselectbackground="#94a3b8",
+            text_holder, height=12, font=FONT_MONO_BIG,
+            wrap=tk.NONE, padx=10, pady=10, bd=0,
+            bg=PALETTE["surface"], fg=PALETTE["text"],
+            insertbackground=PALETTE["primary"],
+            selectbackground=PALETTE["primary"],
+            selectforeground=PALETTE["primary_text"],
+            inactiveselectbackground=PALETTE["border"],
         )
         text_scroll = ttk.Scrollbar(text_holder, orient=tk.HORIZONTAL, command=self.text_widget.xview)
         text_scroll.pack(side=tk.BOTTOM, fill=tk.X)
         self.text_widget.config(xscrollcommand=text_scroll.set)
         self.text_widget.pack(fill=tk.X)
-        # tag 配置: current_line 黄色高亮 + 加粗; context_line 普通; line_prefix 灰色行号
-        self.text_widget.tag_configure("current_line", background="#fff3a0", font=("Consolas", 13, "bold"))
-        self.text_widget.tag_configure("context_line", background="#fafafa", font=("Consolas", 13))
-        self.text_widget.tag_configure("line_prefix", foreground="#999999", font=("Consolas", 12))
+        # tag 配置 (使用 PALETTE)
+        self.text_widget.tag_configure(
+            "current_line", background=PALETTE["current"],
+            font=FONT_MONO_BIG,
+        )
+        self.text_widget.tag_configure(
+            "context_line", background=PALETTE["context_bg"],
+            font=FONT_MONO,
+        )
+        self.text_widget.tag_configure(
+            "line_prefix", foreground=PALETTE["text_muted"],
+            font=("Consolas", 11),
+        )
         self.text_widget.config(state=tk.DISABLED, cursor="arrow")
 
-        # 行号导航按钮
-        btn_row = ttk.Frame(cur)
-        btn_row.pack(fill=tk.X, pady=4)
-        # 主导航区:大步(==上下文行数) + 细调(-1/+1)
-        ttk.Button(btn_row, text="⇑ 上一段 (PgUp)", command=self._prev_line).pack(side=tk.LEFT, padx=2)
-        ttk.Button(btn_row, text="⇓ 下一段 (Space / PgDn)", command=self._next_line).pack(side=tk.LEFT, padx=2)
-        ttk.Separator(btn_row, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=8)
-        ttk.Button(btn_row, text="↑ -1", width=4, command=lambda: self._step_one(-1)).pack(side=tk.LEFT, padx=1)
-        ttk.Button(btn_row, text="+1 ↓", width=4, command=lambda: self._step_one(1)).pack(side=tk.LEFT, padx=1)
-        ttk.Separator(btn_row, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=8)
+        # ===== 行号导航按钮 (第一排) =====
+        btn_row = ttk.Frame(cur, style="Surface.TFrame")
+        btn_row.pack(fill=tk.X, pady=(8, 4))
+        ttk.Button(btn_row, text="⇑  上一段", command=self._prev_line).pack(side=tk.LEFT, padx=2)
+        ttk.Button(btn_row, text="⇓  下一段  (Space)", command=self._next_line).pack(side=tk.LEFT, padx=2)
+        ttk.Separator(btn_row, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=10)
+        ttk.Button(btn_row, text="↑ -1", width=5, command=lambda: self._step_one(-1)).pack(side=tk.LEFT, padx=1)
+        ttk.Button(btn_row, text="+1 ↓", width=5, command=lambda: self._step_one(1)).pack(side=tk.LEFT, padx=1)
+        ttk.Separator(btn_row, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=10)
+        # 主操作: 提取所选词 — Primary (蓝)
         ttk.Button(
-            btn_row, text="✓ 提取所选词 (Ctrl+Enter)",
-            command=self._extract_selection,
+            btn_row, text="✓  提取所选词  (Ctrl+Enter)",
+            command=self._extract_selection, style="Primary.TButton",
         ).pack(side=tk.LEFT, padx=2)
         ttk.Button(btn_row, text="提取整行", command=self._extract_whole_line).pack(side=tk.LEFT, padx=2)
-        ttk.Separator(btn_row, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=8)
-        ttk.Label(btn_row, text="跳到行号:").pack(side=tk.LEFT, padx=(2, 4))
-        self.jump_entry = ttk.Entry(btn_row, width=6)
+        ttk.Separator(btn_row, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=10)
+        ttk.Label(btn_row, text="跳到行号:", style="Surface.TLabel").pack(side=tk.LEFT, padx=(2, 4))
+        self.jump_entry = ttk.Entry(btn_row, width=7)
         self.jump_entry.pack(side=tk.LEFT)
         self.jump_entry.bind("<Return>", lambda e: self._goto_line())
-        ttk.Button(btn_row, text="跳转", command=self._goto_line).pack(side=tk.LEFT, padx=2)
+        ttk.Button(btn_row, text="跳转 →", command=self._goto_line).pack(side=tk.LEFT, padx=2)
 
-        # 第二排按钮:上下文行数 + 顶部/底部 + 上一集/下一集
-        btn_row2 = ttk.Frame(cur)
-        btn_row2.pack(fill=tk.X, pady=(0, 4))
-        ttk.Label(btn_row2, text="上下文:").pack(side=tk.LEFT, padx=(2, 4))
+        # ===== 第二排按钮 =====
+        btn_row2 = ttk.Frame(cur, style="Surface.TFrame")
+        btn_row2.pack(fill=tk.X, pady=(0, 2))
+        ttk.Label(btn_row2, text="上下文:", style="Surface.TLabel").pack(side=tk.LEFT, padx=(2, 4))
         self.context_size_var = tk.IntVar(value=self.context_size)
         for n in (2, 4, 6, 10, 20):
             ttk.Radiobutton(
                 btn_row2, text=f"±{n}", value=n,
-                variable=self.context_size_var, width=4,
+                variable=self.context_size_var, width=5,
                 command=lambda x=n: self._set_context_size(x),
+                style="TRadiobutton",
             ).pack(side=tk.LEFT, padx=1)
-        ttk.Separator(btn_row2, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=8)
-        ttk.Button(btn_row2, text="⤒ 顶部", command=self._goto_start).pack(side=tk.LEFT, padx=2)
-        ttk.Button(btn_row2, text="⤓ 底部", command=self._goto_end).pack(side=tk.LEFT, padx=2)
-        ttk.Separator(btn_row2, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=8)
-        ttk.Button(btn_row2, text="⬆ 上一集", command=lambda: self._jump_to_section(-1)).pack(side=tk.LEFT, padx=2)
-        ttk.Button(btn_row2, text="下一集 ⬇", command=lambda: self._jump_to_section(1)).pack(side=tk.LEFT, padx=2)
+        ttk.Separator(btn_row2, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=10)
+        ttk.Button(btn_row2, text="⤒  顶部", command=self._goto_start).pack(side=tk.LEFT, padx=2)
+        ttk.Button(btn_row2, text="⤓  底部", command=self._goto_end).pack(side=tk.LEFT, padx=2)
+        ttk.Separator(btn_row2, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=10)
+        ttk.Button(btn_row2, text="⬆  上一集", command=lambda: self._jump_to_section(-1)).pack(side=tk.LEFT, padx=2)
+        ttk.Button(btn_row2, text="下一集  ⬇", command=lambda: self._jump_to_section(1)).pack(side=tk.LEFT, padx=2)
 
-        # 已提取区
-        lst = ttk.LabelFrame(browse_page, text="已提取的生词 / 词组（双击可删除）", padding=8)
-        lst.pack(fill=tk.BOTH, expand=True, padx=8, pady=4)
+        # ===== 已提取区 (卡片) =====
+        lst = ttk.LabelFrame(
+            browse_page,
+            text="  ✏️  已提取的生词 / 词组  ·  双击可删除  ",
+            padding=10, style="Card.TLabelframe",
+        )
+        lst.pack(fill=tk.BOTH, expand=True, padx=4, pady=(6, 6))
 
-        opt_row = ttk.Frame(lst)
+        opt_row = ttk.Frame(lst, style="Surface.TFrame")
         opt_row.pack(fill=tk.X)
         self.dedupe_var = tk.BooleanVar(value=True)
         ttk.Checkbutton(
-            opt_row, text="自动去重（已存在的词不再加入）",
-            variable=self.dedupe_var,
+            opt_row, text="自动去重 (已存在的词不再加入)",
+            variable=self.dedupe_var, style="TCheckbutton",
         ).pack(side=tk.LEFT)
-
         self.autonext_var = tk.BooleanVar(value=False)
         ttk.Checkbutton(
             opt_row, text="提取后自动下一行",
-            variable=self.autonext_var,
-        ).pack(side=tk.LEFT, padx=16)
+            variable=self.autonext_var, style="TCheckbutton",
+        ).pack(side=tk.LEFT, padx=20)
 
-        list_frame = ttk.Frame(lst)
-        list_frame.pack(fill=tk.BOTH, expand=True, pady=4)
-        self.listbox = tk.Listbox(
-            list_frame, font=("Consolas", 12), selectmode=tk.SINGLE, activestyle="dotbox",
+        list_frame = tk.Frame(
+            lst, bg=PALETTE["surface_alt"],
+            highlightthickness=1, highlightbackground=PALETTE["border"],
         )
-        self.listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        list_frame.pack(fill=tk.BOTH, expand=True, pady=(6, 6))
+        self.listbox = tk.Listbox(
+            list_frame,
+            font=("Segoe UI", 11), selectmode=tk.SINGLE,
+            bg=PALETTE["surface"], fg=PALETTE["text"],
+            selectbackground=PALETTE["primary"],
+            selectforeground=PALETTE["primary_text"],
+            highlightthickness=0, bd=0, relief=tk.FLAT,
+            activestyle="none", height=8,
+        )
+        self.listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=4, pady=4)
         scrollbar = ttk.Scrollbar(list_frame, orient=tk.VERTICAL, command=self.listbox.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.listbox.config(yscrollcommand=scrollbar.set)
         self.listbox.bind("<Double-Button-1>", lambda e: self._delete_selected())
 
-        list_btn_row = ttk.Frame(lst)
+        list_btn_row = ttk.Frame(lst, style="Surface.TFrame")
         list_btn_row.pack(fill=tk.X)
-        ttk.Button(list_btn_row, text="删除所选 (Del)", command=self._delete_selected).pack(side=tk.LEFT, padx=2)
-        ttk.Button(list_btn_row, text="↑ 上移", command=lambda: self._move_item(-1)).pack(side=tk.LEFT, padx=2)
-        ttk.Button(list_btn_row, text="↓ 下移", command=lambda: self._move_item(1)).pack(side=tk.LEFT, padx=2)
+        ttk.Button(list_btn_row, text="🗑  删除所选  (Del)", command=self._delete_selected).pack(side=tk.LEFT, padx=2)
+        ttk.Button(list_btn_row, text="↑  上移", command=lambda: self._move_item(-1)).pack(side=tk.LEFT, padx=2)
+        ttk.Button(list_btn_row, text="↓  下移", command=lambda: self._move_item(1)).pack(side=tk.LEFT, padx=2)
         ttk.Button(list_btn_row, text="清空全部", command=self._clear_all).pack(side=tk.LEFT, padx=12)
-        # 保存按钮: 放在最右边, 醒目绿底 (用户最容易点的位置)
-        self.save_btn = tk.Button(
-            list_btn_row, text="💾 保存生词到文件",
-            font=("Segoe UI", 10, "bold"),
-            fg="white", bg="#28a745",
-            activebackground="#218838", activeforeground="white",
-            relief=tk.FLAT, bd=0, padx=14, pady=4, cursor="hand2",
-            command=self._save_words,
+        # 保存按钮: 放在最右边, 醒目绿底 (Success 样式)
+        self.save_btn = ttk.Button(
+            list_btn_row, text="💾  保存生词到文件",
+            command=self._save_words, style="Success.TButton",
         )
         self.save_btn.pack(side=tk.RIGHT, padx=(8, 2))
 
-        # 底部: 状态条 (只保留统计)
-        bottom = ttk.Frame(browse_page, padding=(8, 4))
-        bottom.pack(fill=tk.X, padx=8, pady=(0, 4))
-        self.word_count_label = ttk.Label(bottom, text="已提取: 0 个", font=("Segoe UI", 10, "bold"))
-        self.word_count_label.pack(side=tk.LEFT)
-        ttk.Button(bottom, text="📋 复制全部到剪贴板", command=self._copy_to_clipboard).pack(side=tk.RIGHT, padx=4)
-
-        # 状态栏
-        self.status_bar = ttk.Label(
-            self.root, text="就绪", relief=tk.SUNKEN, anchor=tk.W, padding=4,
+        # ===== 底部: 状态条 (只保留统计) =====
+        bottom = ttk.Frame(browse_page, style="TFrame", padding=(4, 6))
+        bottom.pack(fill=tk.X, padx=4, pady=(0, 4))
+        # 左侧: 数量统计 — 用 accent 色突出
+        self.word_count_label = tk.Label(
+            bottom,
+            text="📊 已提取: 0 个",
+            bg=PALETTE["bg"], fg=PALETTE["primary_dark"],
+            font=FONT_HEADING, anchor=tk.W, padx=6,
         )
-        self.status_bar.pack(fill=tk.X, side=tk.BOTTOM)
+        self.word_count_label.pack(side=tk.LEFT)
+        ttk.Button(bottom, text="📋  复制全部到剪贴板",
+                    command=self._copy_to_clipboard).pack(side=tk.RIGHT, padx=4)
+
+        # ===== 状态栏 (底部深蓝条) =====
+        status_frame = tk.Frame(self.root, bg=PALETTE["primary_dark"], height=28)
+        status_frame.pack(fill=tk.X, side=tk.BOTTOM)
+        status_frame.pack_propagate(False)
+        self.status_bar = tk.Label(
+            status_frame, text="✓ 就绪",
+            bg=PALETTE["primary_dark"], fg=PALETTE["primary_text"],
+            font=FONT_SMALL, anchor=tk.W, padx=14,
+        )
+        self.status_bar.pack(side=tk.LEFT, fill=tk.Y)
 
         # 快捷键
         self.root.bind("<Right>", lambda e: self._next_line())
@@ -293,52 +600,64 @@ class WordExtractor:
               下方 = 当前学习点的解释。
         设计初衷跟浏览/提取页面保持一致:用户首先看到的是"整篇文章",只是多了高亮提醒。
         """
-        # === 顶部控制栏 ===
-        top = ttk.Frame(parent)
+        # === 顶部控制栏 (card-style) ===
+        top = ttk.Frame(parent, style="Surface.TFrame", padding=8)
         top.pack(fill=tk.X, padx=8, pady=(10, 6))
 
-        ttk.Label(top, text="状态:").pack(side=tk.LEFT, padx=(2, 4))
+        ttk.Label(top, text="📍 状态:", style="Surface.TLabel",
+                  font=FONT_BOLD).pack(side=tk.LEFT, padx=(2, 4))
         self.learn_status_var = tk.StringVar(value="(未加载)")
         ttk.Label(
             top, textvariable=self.learn_status_var,
-            foreground="#0066cc", font=("Segoe UI", 11, "bold"),
+            style="Primary.TLabel", font=("Segoe UI", 11, "bold"),
         ).pack(side=tk.LEFT, padx=2)
 
         ttk.Separator(top, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=12)
 
-        ttk.Button(top, text="⬆ 上一个", command=self._prev_learning).pack(side=tk.LEFT, padx=2)
-        ttk.Button(top, text="下一个 ⬇", command=self._next_learning).pack(side=tk.LEFT, padx=2)
+        # 主操作: 上一个/下一个 — Accent (橙)
+        ttk.Button(top, text="⬆  上一个", command=self._prev_learning,
+                    style="Accent.TButton").pack(side=tk.LEFT, padx=2)
+        ttk.Button(top, text="下一个  ⬇", command=self._next_learning,
+                    style="Accent.TButton").pack(side=tk.LEFT, padx=2)
 
         ttk.Separator(top, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=12)
 
-        ttk.Label(top, text="按序号跳转:").pack(side=tk.LEFT, padx=(2, 4))
-        self.learn_seq_entry = ttk.Entry(top, width=6)
+        ttk.Label(top, text="按序号跳转:", style="Surface.TLabel").pack(side=tk.LEFT, padx=(2, 4))
+        self.learn_seq_entry = ttk.Entry(top, width=7)
         self.learn_seq_entry.pack(side=tk.LEFT)
         self.learn_seq_entry.bind("<Return>", lambda e: self._goto_learning_seq())
-        ttk.Button(top, text="跳转", command=self._goto_learning_seq).pack(side=tk.LEFT, padx=2)
+        ttk.Button(top, text="跳转 →", command=self._goto_learning_seq).pack(side=tk.LEFT, padx=2)
 
         ttk.Separator(top, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=12)
 
-        ttk.Button(top, text="🔄 重新加载", command=self._reload_learning_file).pack(side=tk.LEFT, padx=2)
-        ttk.Button(top, text="选单词本…", command=self._choose_learning_file).pack(side=tk.LEFT, padx=2)
+        ttk.Button(top, text="🔄  重新加载", command=self._reload_learning_file).pack(side=tk.LEFT, padx=2)
+        ttk.Button(top, text="📖  选单词本…", command=self._choose_learning_file).pack(side=tk.LEFT, padx=2)
         ttk.Separator(top, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=12)
-        ttk.Button(top, text="📄 选原文…", command=self._choose_source_for_learning).pack(side=tk.LEFT, padx=2)
+        ttk.Button(top, text="📄  选原文…", command=self._choose_source_for_learning).pack(side=tk.LEFT, padx=2)
 
-        # === 单词本信息条 (明示只读) ===
-        info = ttk.Frame(parent)
-        info.pack(fill=tk.X, padx=8, pady=(0, 4))
+        # === 单词本信息条 (卡条) ===
+        info = tk.Frame(
+            parent, bg=PALETTE["surface_alt"],
+            highlightthickness=1, highlightbackground=PALETTE["border"],
+        )
+        info.pack(fill=tk.X, padx=8, pady=(0, 6))
         self.learn_file_var = tk.StringVar(value="📚 当前单词本: (未加载)")
-        ttk.Label(info, textvariable=self.learn_file_var, foreground="#444").pack(side=tk.LEFT)
-        ttk.Label(info, text="    🔒 只读模式 (程序不会修改原文件)", foreground="#aa5500",
-                  font=("Segoe UI", 9, "bold")).pack(side=tk.LEFT)
+        tk.Label(info, textvariable=self.learn_file_var,
+                  bg=PALETTE["surface_alt"], fg=PALETTE["text"],
+                  font=FONT_BOLD).pack(side=tk.LEFT, padx=10, pady=6)
+        tk.Label(info, text="🔒 只读模式 (程序不会修改原文件)",
+                  bg=PALETTE["surface_alt"], fg=PALETTE["warning"],
+                  font=("Segoe UI", 9, "bold")).pack(side=tk.LEFT, padx=4, pady=6)
         self.learn_count_var = tk.StringVar(value="")
-        ttk.Label(info, textvariable=self.learn_count_var, foreground="#666").pack(side=tk.RIGHT)
+        tk.Label(info, textvariable=self.learn_count_var,
+                  bg=PALETTE["surface_alt"], fg=PALETTE["text_muted"],
+                  font=FONT_SMALL).pack(side=tk.RIGHT, padx=10, pady=6)
 
         # === 左右排布: 原文 + 解释 (tk.PanedWindow 可拖动分隔条) ===
         self.learn_paned = tk.PanedWindow(
             parent, orient=tk.HORIZONTAL,
             sashrelief=tk.RAISED, sashwidth=6, sashpad=0,
-            bg="#cccccc", bd=0, relief=tk.FLAT,
+            bg=PALETTE["border"], bd=0, relief=tk.FLAT,
             showhandle=False,
         )
         self.learn_paned.pack(fill=tk.BOTH, expand=True, padx=8, pady=(0, 8))
@@ -346,75 +665,100 @@ class WordExtractor:
         # --- 左: 原文 ---
         src_holder = ttk.LabelFrame(
             self.learn_paned,
-            text="📄 原文  (• 学习点位置已高亮, ▶ 为当前学习点)",
-            padding=4,
+            text="  📄  原文  ·  • 学习点已高亮  ·  ▶ 为当前学习点  ",
+            padding=6, style="Card.TLabelframe",
         )
         self.learn_paned.add(src_holder, minsize=320, stretch="always")
 
-        src_frame = tk.Frame(src_holder)
+        src_frame = tk.Frame(
+            src_holder, bg=PALETTE["surface"],
+            highlightthickness=1, highlightbackground=PALETTE["border"],
+        )
         src_frame.pack(fill=tk.BOTH, expand=True)
 
         self.learn_text = tk.Text(
             src_frame, font=("Consolas", 11), wrap=tk.NONE,
-            padx=6, pady=6, bd=0, bg="#fdfdfd",
-            selectbackground="#1e4ea0",
-            selectforeground="white",
-            inactiveselectbackground="#94a3b8",
+            padx=8, pady=8, bd=0,
+            bg=PALETTE["surface"], fg=PALETTE["text"],
+            selectbackground=PALETTE["primary"],
+            selectforeground=PALETTE["primary_text"],
+            inactiveselectbackground=PALETTE["border"],
         )
         src_scroll = ttk.Scrollbar(src_frame, orient=tk.VERTICAL, command=self.learn_text.yview)
         src_scroll.pack(side=tk.RIGHT, fill=tk.Y)
-        self.learn_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self.learn_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=2, pady=2)
         self.learn_text.config(yscrollcommand=src_scroll.set, state=tk.DISABLED, cursor="arrow")
-        # tag 配置
-        self.learn_text.tag_configure("line_no", foreground="#aaaaaa", font=("Consolas", 10))
-        self.learn_text.tag_configure("learn_marker", foreground="#cc6600", font=("Consolas", 11, "bold"))
-        self.learn_text.tag_configure("learn_point", background="#fff3a0")
+        # tag 配置 (使用 PALETTE)
         self.learn_text.tag_configure(
-            "current_point", background="#ff8844", foreground="white",
+            "line_no", foreground=PALETTE["text_muted"], font=("Consolas", 10),
+        )
+        self.learn_text.tag_configure(
+            "learn_marker", foreground=PALETTE["accent"],
+            font=("Consolas", 11, "bold"),
+        )
+        self.learn_text.tag_configure("learn_point", background=PALETTE["highlight"])
+        self.learn_text.tag_configure(
+            "current_point", background=PALETTE["accent"],
+            foreground=PALETTE["primary_text"],
             font=("Consolas", 11, "bold"),
         )
         self.learn_text.tag_configure(
-            "current_marker", background="#ff8844", foreground="white",
+            "current_marker", background=PALETTE["accent"],
+            foreground=PALETTE["primary_text"],
             font=("Consolas", 11, "bold"),
         )
 
         # --- 右: 解释 ---
         exp_holder = ttk.LabelFrame(
             self.learn_paned,
-            text="📝 当前学习点解释",
-            padding=4,
+            text="  📝  当前学习点解释  ",
+            padding=6, style="Card.TLabelframe",
         )
         self.learn_paned.add(exp_holder, minsize=260, stretch="always")
 
         # 顶部:小按钮 [⤒ 跳到浏览页] — 在学习模式下手动查看完整上下文
-        exp_top = ttk.Frame(exp_holder)
+        exp_top = ttk.Frame(exp_holder, style="Surface.TFrame")
         exp_top.pack(fill=tk.X)
-        ttk.Button(exp_top, text="⤒ 跳到浏览页查看上下文", command=self._jump_source_line).pack(side=tk.RIGHT)
+        ttk.Button(exp_top, text="⤒  跳到浏览页查看上下文",
+                    command=self._jump_source_line).pack(side=tk.RIGHT, padx=2, pady=(0, 4))
 
-        exp_frame = tk.Frame(exp_holder)
-        exp_frame.pack(fill=tk.BOTH, expand=True, pady=(4, 0))
+        exp_frame = tk.Frame(
+            exp_holder, bg=PALETTE["surface_alt"],
+            highlightthickness=1, highlightbackground=PALETTE["border"],
+        )
+        exp_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 0))
 
         self.learn_explain = tk.Text(
             exp_frame, font=("Microsoft YaHei", 10), wrap=tk.WORD,
-            padx=8, pady=8, bd=0, bg="#f8f8f8",
-            selectbackground="#1e4ea0", selectforeground="white",
-            inactiveselectbackground="#94a3b8",
+            padx=10, pady=10, bd=0,
+            bg=PALETTE["surface_alt"], fg=PALETTE["text"],
+            selectbackground=PALETTE["primary"],
+            selectforeground=PALETTE["primary_text"],
+            inactiveselectbackground=PALETTE["border"],
         )
         exp_scroll = ttk.Scrollbar(exp_frame, orient=tk.VERTICAL, command=self.learn_explain.yview)
         exp_scroll.pack(side=tk.RIGHT, fill=tk.Y)
         self.learn_explain.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         self.learn_explain.config(yscrollcommand=exp_scroll.set, state=tk.DISABLED)
-        # tag
-        self.learn_explain.tag_configure("seq_tag", foreground="#aa5500", font=("Consolas", 11, "bold"))
+        # tag (使用 PALETTE)
         self.learn_explain.tag_configure(
-            "target", foreground="#222", font=("Consolas", 12, "bold"), background="#fffacd",
+            "seq_tag", foreground=PALETTE["accent"],
+            font=("Consolas", 11, "bold"),
         )
-        self.learn_explain.tag_configure("heading", foreground="#1e4ea0",
-                                         font=("Microsoft YaHei", 12, "bold"))
-        self.learn_explain.tag_configure("subheading", foreground="#885500",
-                                         font=("Microsoft YaHei", 10, "bold"))
-        self.learn_explain.tag_configure("numbered", foreground="#336699")
-        self.learn_explain.tag_configure("empty", foreground="#999")
+        self.learn_explain.tag_configure(
+            "target", foreground=PALETTE["text"], font=("Consolas", 12, "bold"),
+            background=PALETTE["highlight"],
+        )
+        self.learn_explain.tag_configure(
+            "heading", foreground=PALETTE["primary_dark"],
+            font=("Microsoft YaHei", 12, "bold"),
+        )
+        self.learn_explain.tag_configure(
+            "subheading", foreground=PALETTE["warning"],
+            font=("Microsoft YaHei", 10, "bold"),
+        )
+        self.learn_explain.tag_configure("numbered", foreground=PALETTE["primary"])
+        self.learn_explain.tag_configure("empty", foreground=PALETTE["text_muted"])
 
         # 默认分割位置: 左 65%, 右 35% (窗口首次 layout 后调用)
         self.root.after(80, self._place_learn_paned)
