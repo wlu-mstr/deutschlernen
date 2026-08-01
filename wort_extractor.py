@@ -116,6 +116,11 @@ class WordExtractor:
             return
         if self._load_file(path):
             self._show_current_line()
+            # 切换文件后恢复新文件的已保存单词
+            self._load_persisted_words()
+            # 学习模式同步切换: 重新解析当前单词本(行号可能需要对应新原文)
+            if self.learning_items:
+                self._reload_learning_file()
 
     # -------------------------------------------------------------- UI 构建
     def _create_ui(self):
@@ -316,6 +321,8 @@ class WordExtractor:
 
         ttk.Button(top, text="🔄 重新加载", command=self._reload_learning_file).pack(side=tk.LEFT, padx=2)
         ttk.Button(top, text="选单词本…", command=self._choose_learning_file).pack(side=tk.LEFT, padx=2)
+        ttk.Separator(top, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=12)
+        ttk.Button(top, text="📄 选原文…", command=self._choose_source_for_learning).pack(side=tk.LEFT, padx=2)
 
         # === 单词本信息条 (明示只读) ===
         info = ttk.Frame(parent)
@@ -541,6 +548,22 @@ class WordExtractor:
         )
         if path:
             self._load_learning_file(path)
+
+    def _choose_source_for_learning(self):
+        """在"学习模式"里单独切换原文文件,同时更新学习点的行号映射。"""
+        path = filedialog.askopenfilename(
+            title="选择原文文件",
+            initialdir=self.script_dir,
+            filetypes=[("Text", "*.txt"), ("All", "*.*")],
+        )
+        if not path:
+            return
+        if self._load_file(path):
+            self._show_current_line()
+            self._load_persisted_words()
+            # 重新渲染学习页的原文区 (行号映射已更新)
+            if self.learning_items:
+                self._reload_learning_file()
 
     def _set_learning_status(self, msg):
         if self.learn_status_var is not None:

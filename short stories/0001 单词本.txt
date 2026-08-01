@@ -1,0 +1,335 @@
+## 0
+行号：1
+Karl hat frei
+### 翻译
+卡尔今天休息，不用上班。早上他躺在床上不起身，直到上午11点才起床。早餐后，他喝咖啡，吃了一块蛋糕。他喜欢早晨新鲜咖啡的香味。卡尔决定骑自行车出去兜风，于是从车库拿出他的旧自行车。他住的村庄旁边是一片大森林，空气中弥漫着松树和冷杉的清香。骑行途中，微风掠过他的头发，也穿过树梢的树叶。卡尔热爱这种自由的感觉——可以骑得那么远，直到双腿再也支撑不住为止。下午时分，卡尔在一条小溪边休息。他带了面包、奶酪和香肠，先吃点东西再继续骑行。但骑行十分钟之后，他已经无法再踩踏板了——链条卡住了。他用手机叫了一辆出租车，出租车把他和自行车一起送回了家。所以，他的自由可能就这样迅速结束了。
+
+## 1
+行号：2
+bleibt er im Bett liegen
+### 单词拆解
+bleibt：动词 bleiben 第三人称单数现在时
+er：代词 他
+im = in dem：介词+定冠词，第三格，在……里面
+das Bett：床，第三格 dem Bett
+liegen：动词 躺着（此处为不定式，构成 bleiben + 动词不定式 固定结构）
+### 动词变形（bleiben 原形：停留，保持，留在）
+ich bleibe
+du bleibst
+er/sie/es bleibt
+wir bleiben
+ihr bleibt
+sie/Sie bleiben
+### 固定结构与句意
+结构：jdn. bleiben + 动词不定式 一直保持做某事
+翻译：他继续躺在床上不起身。
+
+## 2
+行号：3
+aufstehen
+### 具体释义
+动词原形：aufstehen
+中文：起床；站起来；起身
+### 现在时人称变位
+ich stehe auf
+du stehst auf
+er/sie/es steht auf
+wir stehen auf
+ihr steht auf
+sie/Sie stehen auf
+过去式：er stand auf
+第二分词：aufgestanden
+
+## 3
+行号：4
+der Geruch
+### 名词
+der Geruch，复数 die Gerüche
+词性：阳性der
+中文：气味，味道；嗅觉
+
+## 4
+行号：4
+der Kuchen
+### 名词
+der Kuchen，复数 die Kuchen
+词性：阳性der
+中文：蛋糕，糕点
+
+## 5
+行号：4
+Stück
+### 名词
+das Stück，复数 die Stücke
+词性：中性das
+中文：块，片，段，件；一只（量词）
+常用搭配：ein Stück Kuchen 一块蛋糕
+
+## 6
+行号：5
+die Fahrradtour
+### 名词
+die Fahrradtour，复数 die Fahrradtouren
+词性：阴性die
+中文：自行车短途旅行、骑行出游
+
+## 7
+行号：5
+sich entschließen
+### 具体释义
+反身动词原形：sich entschließen
+中文：下定决心，作出决定
+### 现在时变位（反身代词同步变化）
+ich entschließe mich
+du entschließt dich
+er/sie/es entschließt sich
+wir entschließen uns
+ihr entschließt euch
+sie/Sie entschließen sich
+常用搭配：sich entschließen, etw. zu tun 下定决心做某事
+
+## 8
+行号：6
+das Dorf
+### 名词
+das Dorf，复数 die Dörfer
+词性：中性das
+中文：村庄，村子
+
+## 9
+行号：6
+grenzt
+### 具体释义
+动词原形：grenzen
+中文：与……接壤，毗邻，边界相连
+### 现在时变位
+ich grenze
+du grenzest
+er/sie/es grenzt
+wir grenzen
+ihr grenzt
+sie/Sie grenzen
+固定搭配：an etw. (Akk.) grenzen 与某地相邻
+
+## 10
+行号：7
+Fichten
+### 名词
+die Fichte，复数 die Fichten
+词性：阴性die
+中文：云杉，冷杉（树木）
+
+## 11
+行号：7
+Kiefern
+### 名词
+die Kiefer，复数 die Kiefern
+词性：阴性die
+中文：松树，松木
+
+## 12
+行号：7
+Wald
+### 名词
+der Wald，复数 die Wälder
+词性：阳性der
+中文：森林，树林
+
+## 13
+行号：7
+Während
+### 具体释义
+介词/连词
+1. 介词 + 第二格：在……期间
+2. 连词：当……之时；然而（表对比）
+例：Während des Spaziergangs 在散步期间
+
+## 14
+行号：7
+riecht
+### 具体释义
+动词原形：riechen
+中文：闻起来；嗅，闻；有……气味
+### 现在时变位
+ich rieche
+du riechst
+er/sie/es riecht
+wir riechen
+ihr riecht
+sie/Sie riechen
+
+## 15
+行号：8
+Blätter
+### 名词
+das Blatt，复数 die Blätter
+词性：中性das
+中文：叶子；叶片；纸张
+
+## 16
+行号：8
+Haare
+### 名词
+das Haar，复数 die Haare
+词性：中性das
+中文：头发；毛发（单数一根毛发，复数多指满头头发）
+
+## 17
+行号：8
+durch
+### 具体释义
+介词，支配第四格
+含义：穿过，通过；经由；凭借；透过
+例：durch den Wald gehen 穿过森林
+
+## 18
+行号：8
+rauscht
+### 具体释义
+动词原形：rauschen
+中文：（树叶、水流、风声）沙沙作响，簌簌声，哗哗流淌
+### 现在时变位
+ich rausche
+du rauschst
+er/sie/es rauscht
+wir rauschen
+ihr rauscht
+sie/Sie rauschen
+
+## 19
+行号：9
+Freiheit
+### 名词
+die Freiheit，复数 die Freiheiten
+词性：阴性die
+中文：自由；自主权
+
+## 20
+行号：10
+Bach
+### 名词
+der Bach，复数 die Bäche
+词性：阳性der
+中文：小溪，小河，溪流
+
+## 21
+行号：10
+rastet
+### 具体释义
+动词原形：rasten
+中文：休憩，中途休息，歇脚
+### 现在时变位
+ich raste
+du rastest
+er/sie/es rastet
+wir rasten
+ihr rastet
+sie/Sie rasten
+
+## 22
+行号：11
+Brot
+### 名词
+das Brot，复数 die Brote
+词性：中性das
+中文：面包
+
+## 23
+行号：11
+bevor
+### 具体释义
+连词
+中文：在……之前，先于……
+引导时间状语从句，从句动词后置
+
+## 24
+行号：11
+mitgenommen
+### 具体释义
+动词原形：mitnehmen
+中文：随身携带；带走；顺路搭载
+mitgenommen 为第二分词
+### 现在时核心变位
+ich nehme mit
+du nimmst mit
+er/sie/es nimmt mit
+完成时：habe ... mitgenommen 已经带上了
+
+## 25
+行号：12
+Pedale
+### 名词
+das Pedal，复数 die Pedale
+词性：中性das
+中文：（自行车、脚踏车）脚踏板，踏板
+
+## 26
+行号：12
+weiterfährt
+### 具体释义
+动词原形：weiterfahren
+中文：继续行驶，继续骑行，向前开走
+### 现在时变位
+ich fahre weiter
+du fährst weiter
+er/sie/es fährt weiter
+wir fahren weiter
+ihr fahrt weiter
+sie/Sie fahren weiter
+
+## 27
+行号：13
+Kette
+### 名词
+die Kette，复数 die Ketten
+词性：阴性die
+中文：链条；锁链；（自行车）车链
+
+## 28
+行号：13
+treten
+### 具体释义
+动词原形：treten
+中文：蹬（脚踏）；踩踏；踢；迈步
+### 现在时变位
+ich trete
+du trittst
+er/sie/es tritt
+wir treten
+ihr tretet
+sie/Sie treten
+语境：in die Pedale treten 蹬自行车脚踏板
+
+## 29
+行号：13
+verklemmt
+### 具体释义
+动词原形：verklemmen
+中文：卡住，卡死，夹住，卡死不动（自行车链条卡死）
+### 现在时变位
+ich verklemm(e)
+du verklemmst
+er/sie/es verklemmt
+wir verklemmen
+ihr verklemmt
+sie/Sie verklemmen
+第二分词：verklemmt
+
+## 30
+行号：15
+vorbei
+### 具体释义
+副词/形容词
+1. 副词：过去，过去了；经过；结束
+Der Regen ist vorbei. 雨停了。
+2. 搭配：vorbei gehen 走过，经过
+
+## 31
+行号：6
+Garage
+### 名词
+die Garage，复数 die Garagen
+词性：阴性 die
+中文：车库；汽车修理厂
+常用搭配：in der Garage 在车库里（第三格）
+```
